@@ -1,0 +1,21 @@
+# A função pivot_parc_matriz realiza a pivotação entre a linhas
+# Coloca a linha que possui maior elemento em módulo na primeira coluna acima das demais
+
+import numpy as np
+
+def pivot_parc_matriz(A, row, col):
+    print("Dada a  Matriz:")
+    print(A)
+
+    # Encontrar o índice da linha com o maior valor absoluto na coluna específica a partir de 'row'
+    max_row = row + np.argmax(np.abs(A[row:, col]))
+  
+    # Trocar a linha atual com a linha do maior valor
+    if max_row != row:
+        A[[row, max_row]] = A[[max_row, row]]
+        print("Matriz após pivotação:")
+    else:
+        print("Nenhuma troca necessária")
+    
+    print(A)
+    return A
